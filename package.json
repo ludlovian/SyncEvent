@@ -1,6 +1,6 @@
 {
   "name": "syncevent",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Event sync primitive",
   "main": "src/index.mjs",
   "module": "src/index.mjs",

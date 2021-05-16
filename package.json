@@ -1,0 +1,29 @@
+{
+  "name": "syncevent",
+  "version": "0.0.1",
+  "description": "Event sync primitive",
+  "main": "src/index.mjs",
+  "module": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf / coverage/  node_modules/.cache/",
+    "lint": "standard {src,test}/*.mjs|snazzy",
+    "format": "prettier-standard {src,test}/*.mjs",
+    "test": "c8 uvu",
+    "coverage": "npm run test && c8 report --reporter=html && sirv coverage/ -p 8000 -H"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludlovian/syncevent.git"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/ludlovian/syncevent/issues"
+  },
+  "homepage": "https://github.com/ludlovian/syncevent#readme",
+  "devDependencies": {
+    "promise-goodies": "github:ludlovian/promise-goodies",
+    "uvu": "^0.5.1"
+  }
+}

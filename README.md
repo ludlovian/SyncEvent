@@ -4,15 +4,33 @@ A promise-based synchronisation primitive
 
 ## SyncEvent
 
-Creates a new event. This allows one user through at a time once it has been set.
-This automatically unsets the event, so it should be manually reset as needed.
+Creates a new event. Like a barrier at a car park, this allows one user through
+at a time once it has been set. And letting that user through automatically
+unsets the event. So it needs to be manually reset to allow the next user
+through.
 
-```
-const hasData = new SyncEvent()
+### SyncEvent
 
-if (hasData.isSet) { ... } // test to see if already set
+No options. Just create one. It starts unset.
 
-await hasData.wait() // wait for the event to be set and lets one user through
+### .wait() => Promise
 
-hasData.set() // manually reset it to allow others through
-```
+Wait for the event to be set and let you through. This will only let one
+waiter through, and will reset the event.
+
+### .set()
+
+Sets the event.
+
+### .isSet
+
+Is the event set?
+
+### .waiting
+
+How many are waiting in the queue.
+
+### .exec(fn) => Promise(<result>)
+
+Shortcut for waiting on the event, running the function, and then resetting
+the event. Used to permit one-at-a-time functions.
